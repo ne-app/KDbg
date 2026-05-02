@@ -10,7 +10,7 @@ identifiers:
   - type: url
     value: 'https://nekernel.org'
     description: Ne.app
-repository-code: 'https://github.com/ne-foss/utils'
+repository-code: 'https://github.com/ne-foss/tier0'
 url: 'https://nekernel.org'
 abstract: >-
   This is Ne.app' utilities toolchain for OS X, NeSystem, and Linux. Authored
