@@ -3,8 +3,8 @@
 // file LICENSE or copy at http://www.apache.org/licenses/LICENSE-2.0)
 // Official repository: https://github.com/ne-foss-org/utils
 
-#ifndef COMPILERKIT_CONFIG_PRECONFIG_H
-#define COMPILERKIT_CONFIG_PRECONFIG_H
+#ifndef TIER0KIT_CONFIG_PRECONFIG_H
+#define TIER0KIT_CONFIG_PRECONFIG_H
 
 #ifndef Yes
 #define Yes true
@@ -117,4 +117,4 @@
 #define CK_IMPORT_C extern "C"
 #define CK_IMPORT extern
 
-#endif  // COMPILERKIT_CONFIG_PRECONFIG_H
+#endif  // TIER0KIT_CONFIG_PRECONFIG_H

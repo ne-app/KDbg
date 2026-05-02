@@ -3,8 +3,8 @@
 // file LICENSE or copy at http://www.apache.org/licenses/LICENSE-2.0)
 // Official repository: https://github.com/ne-foss-org/utils
 
-#ifndef __COMPILERKIT_CONFIG_H__
-#define __COMPILERKIT_CONFIG_H__
+#ifndef __TIER0KIT_CONFIG_H__
+#define __TIER0KIT_CONFIG_H__
 
 /// =========================================================== ///
 /// @file detail/Config.h
@@ -67,4 +67,4 @@ inline bool install_signal(Int32 signal, void (*handler)(int)) noexcept {
 
 }  // namespace CompilerKit
 
-#endif  // __COMPILERKIT_CONFIG_H__
+#endif  // __TIER0KIT_CONFIG_H__
