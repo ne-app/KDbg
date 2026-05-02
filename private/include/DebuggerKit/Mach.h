@@ -15,10 +15,10 @@
 #include <filesystem>
 #include <vector>
 
-CK_IMPORT_C kern_return_t mach_vm_write(vm_map_t target_task, mach_vm_address_t address,
+TIER0KIT_IMPORT_C kern_return_t mach_vm_write(vm_map_t target_task, mach_vm_address_t address,
                                         vm_offset_t data, mach_msg_type_number_t dataCnt);
 
-CK_IMPORT_C kern_return_t mach_vm_protect(vm_map_t target_task, mach_vm_address_t address,
+TIER0KIT_IMPORT_C kern_return_t mach_vm_protect(vm_map_t target_task, mach_vm_address_t address,
                                           mach_vm_size_t size, boolean_t set_maximum,
                                           vm_prot_t new_protection);
 

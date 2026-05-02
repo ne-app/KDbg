@@ -8,7 +8,7 @@
 /// @file dbg.cc
 /// @brief Nectar debugger.
 
-CK_IMPORT_C Int32 DebuggerMach(Int32 argc, char const* argv[]);
+TIER0KIT_IMPORT_C Int32 DebuggerMach(Int32 argc, char const* argv[]);
 
 /// @brief Debugger entrypoint.
 /// @return Status code of debugger.

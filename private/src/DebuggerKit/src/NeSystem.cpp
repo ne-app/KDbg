@@ -22,7 +22,7 @@ bool NeSystemDebugger::Attach(const CompilerKit::STLString& path,
                               const CompilerKit::STLString& argv, ProcessID& pid) noexcept {
   if (path.empty() || argv.empty()) return NO;
 
-  m_socket = ::socket(AF_INET, SOCK_STREAM, 0);
+  m_socket = ::socket(AF_INET, SOTIER0KIT_STREAM, 0);
 
   if (m_socket == -1) return NO;
 

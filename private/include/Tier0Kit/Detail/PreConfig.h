@@ -113,8 +113,8 @@
   KLASS& operator=(KLASS&&) = default; \
   KLASS(KLASS&&)            = default;
 
-#define CK_IMPORT_CXX extern "C++"
-#define CK_IMPORT_C extern "C"
-#define CK_IMPORT extern
+#define TIER0KIT_IMPORT_CXX extern "C++"
+#define TIER0KIT_IMPORT_C extern "C"
+#define TIER0KIT_IMPORT extern
 
 #endif  // TIER0KIT_CONFIG_PRECONFIG_H
