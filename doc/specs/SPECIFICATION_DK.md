@@ -1,4 +1,4 @@
-# Specification of Nectar.
+# Specification of DK.
 
 ===================================
 
