@@ -4,8 +4,8 @@
 // file LICENSE or copy at http://www.apache.org/licenses/LICENSE-2.0)
 // Official repository: https://github.com/ne-foss-org/utils
 
-#ifndef NECTAR_DEBUGGERKIT_DEBUGGERCONTRACT_H
-#define NECTAR_DEBUGGERKIT_DEBUGGERCONTRACT_H
+#ifndef TIER0KIT_DEBUGGERKIT_DEBUGGERCONTRACT_H
+#define TIER0KIT_DEBUGGERKIT_DEBUGGERCONTRACT_H
 
 #include <DebuggerKit/Detail/Config.h>
 #include <unordered_map>
@@ -46,4 +46,4 @@ class IDebugger {
 };
 }  // namespace DebuggerKit
 
-#endif  // NECTAR_DEBUGGERKIT_DEBUGGERCONTRACT_H
+#endif  // TIER0KIT_DEBUGGERKIT_DEBUGGERCONTRACT_H

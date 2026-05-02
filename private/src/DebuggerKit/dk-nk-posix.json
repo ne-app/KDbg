@@ -9,7 +9,7 @@
   "output_name": "/usr/lib/libDebuggerKit.so",
   "compiler_flags": ["-fPIC", "-shared"],
   "cpp_macros": [
-    "__NECTAR__=202505",
+    "__TIER0KIT__=202505",
     "DK_USE_STRUCTS=1",
     "DK_NEKERNEL_DEBUGGER=1",
     "DEBUGGERKIT_LIBSYSTEM=1",

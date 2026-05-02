@@ -3,8 +3,8 @@
 // file LICENSE or copy at http://www.apache.org/licenses/LICENSE-2.0)
 // Official repository: https://github.com/ne-foss-org/utils
 
-#ifndef NECTAR_DEBUGGERKIT_DETAIL_CONFIG_H
-#define NECTAR_DEBUGGERKIT_DETAIL_CONFIG_H
+#ifndef TIER0KIT_DEBUGGERKIT_DETAIL_CONFIG_H
+#define TIER0KIT_DEBUGGERKIT_DETAIL_CONFIG_H
 
 /// =========================================================== ///
 /// @author Amlal El Mahrouss
@@ -65,4 +65,4 @@ namespace Detail {
 }  // namespace Detail
 }  // namespace DebuggerKit
 
-#endif  // NECTAR_DEBUGGERKIT_DETAIL_CONFIG_H
+#endif  // TIER0KIT_DEBUGGERKIT_DETAIL_CONFIG_H

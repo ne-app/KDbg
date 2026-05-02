@@ -3,8 +3,8 @@
 // file LICENSE or copy at http://www.apache.org/licenses/LICENSE-2.0)
 // Official repository: https://github.com/ne-foss-org/utils
 
-#ifndef NECTAR_DEBUGGERKIT_MACHCONTRACT_H
-#define NECTAR_DEBUGGERKIT_MACHCONTRACT_H
+#ifndef TIER0KIT_DEBUGGERKIT_MACHCONTRACT_H
+#define TIER0KIT_DEBUGGERKIT_MACHCONTRACT_H
 
 #ifdef DK_MACH_DEBUGGER
 
@@ -150,4 +150,4 @@ class MachDebugger DK_DEBUGGER_CONTRACT {
 
 #endif  // DK_MACH_DEBUGGER
 
-#endif  // NECTAR_DEBUGGERKIT_MACHCONTRACT_H
+#endif  // TIER0KIT_DEBUGGERKIT_MACHCONTRACT_H

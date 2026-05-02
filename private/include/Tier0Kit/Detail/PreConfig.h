@@ -91,25 +91,25 @@
 
 #define kAsmFileExtsMax (7U)
 
-#define NECTAR_MODULE(name) extern "C" int name(int argc, char** argv)
+#define TIER0KIT_MODULE(name) extern "C" int name(int argc, char** argv)
 
 #ifdef MSVC
 #pragma scalar_storage_order big - endian
 #endif  // ifdef MSVC
 
-#define NECTAR_COPY_DELETE(KLASS)          \
+#define TIER0KIT_COPY_DELETE(KLASS)          \
   KLASS& operator=(const KLASS&) = delete; \
   KLASS(const KLASS&)            = delete;
 
-#define NECTAR_COPY_DEFAULT(KLASS)          \
+#define TIER0KIT_COPY_DEFAULT(KLASS)          \
   KLASS& operator=(const KLASS&) = default; \
   KLASS(const KLASS&)            = default;
 
-#define NECTAR_MOVE_DELETE(KLASS)     \
+#define TIER0KIT_MOVE_DELETE(KLASS)     \
   KLASS& operator=(KLASS&&) = delete; \
   KLASS(KLASS&&)            = delete;
 
-#define NECTAR_MOVE_DEFAULT(KLASS)     \
+#define TIER0KIT_MOVE_DEFAULT(KLASS)     \
   KLASS& operator=(KLASS&&) = default; \
   KLASS(KLASS&&)            = default;
 
