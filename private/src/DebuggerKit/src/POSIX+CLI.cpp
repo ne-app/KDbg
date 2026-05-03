@@ -8,7 +8,6 @@
 
 #include <DebuggerKit/POSIX.h>
 #include <ThirdParty/Dialogs/Dialogs.h>
-
 #include <DebuggerKit/Common.inl>
 
 /// @internal

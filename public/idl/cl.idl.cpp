@@ -3,12 +3,12 @@
 // Licensed under the Apache License, Version 2.0 (see LICENSE file)
 // Official repository: https://github.com/ne-foss/tier0
 
-#include <libidl/idl.hpp>
 #include <cstdlib>
 #include <fstream>
+#include <libidl/idl.hpp>
 
-static uint16_t kNumericalBase = 10;
-static auto     kMinArgs       = 4;
+/// @brief You have to provide IDL fields, thus the min count.
+static auto kMinArgs{4};
 
 int main(int argc, char** argv) {
   if (argc < kMinArgs) {

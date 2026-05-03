@@ -59,7 +59,7 @@
 
 #define kDistRelease ToString(kDistReleaseBranch)
 
-#define kDistVersion "v0.1.3-compilerkit"
+#define kDistVersion "v0.1.3-tier0"
 #define kDistVersionBCD 0x0103
 
 #define ToString(X) Stringify(X)
