@@ -4,7 +4,7 @@
 // file LICENSE or copy at http://www.apache.org/licenses/LICENSE-2.0)
 // Official repository: https://github.com/ne-foss/tier0
 
-#ifdef DK_NEKERNEL_DEBUGGER
+#ifdef DK_NESYSTEM_DEBUGGER
 
 /// @author Amlal El Mahrouss
 /// @brief Kernel Debugger Protocol
@@ -84,4 +84,4 @@ bool NeSystemDebugger::Detach() noexcept {
   return ret;
 }
 
-#endif  // DK_NEKERNEL_DEBUGGER
+#endif  // DK_NESYSTEM_DEBUGGER

@@ -12,7 +12,7 @@
     "__TIER0KIT__=202505",
     "TIER0KIT_USE_STRUCTS=1",
     "DEBUGGERKIT_WINDOWS=1",
-    "DK_NEKERNEL_DEBUGGER=1",
+    "DK_NESYSTEM_DEBUGGER=1",
     "kDistReleaseBranch=$(git rev-parse --abbrev-ref HEAD)-$(uuidgen)"
   ]
 }

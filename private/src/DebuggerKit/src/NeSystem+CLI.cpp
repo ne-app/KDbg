@@ -4,7 +4,7 @@
 // file LICENSE or copy at http://www.apache.org/licenses/LICENSE-2.0)
 // Official repository: https://github.com/ne-foss/tier0
 
-#ifdef DK_NEKERNEL_DEBUGGER
+#ifdef DK_NESYSTEM_DEBUGGER
 
 #include <DebuggerKit/NeSystem.h>
 #include <ThirdParty/Dialogs/Dialogs.h>
@@ -27,7 +27,7 @@ static void dbgi_ctrlc_handler(std::int32_t _) {
 
 TIER0KIT_MODULE(DebuggerNeKernel) {
   pfd::notify("Debugger Event",
-              "Nectar Debugger\n(C) 2025 Amlal El Mahrouss and Ne.app contributors, all "
+              "NeSystem Debugger\n(C) 2025-2026 Amlal El Mahrouss and contributors, all "
               "rights reserved.");
 
   if (argc >= 5 && std::string(argv[1]) == "-k" && argv[2] != nullptr &&
@@ -95,4 +95,4 @@ TIER0KIT_MODULE(DebuggerNeKernel) {
   return EXIT_FAILURE;
 }
 
-#endif  // DK_NEKERNEL_DEBUGGER
+#endif  // DK_NESYSTEM_DEBUGGER

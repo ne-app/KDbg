@@ -11,7 +11,7 @@
   "cpp_macros": [
     "__TIER0KIT__=202505",
     "DK_USE_STRUCTS=1",
-    "DK_NEKERNEL_DEBUGGER=1",
+    "DK_NESYSTEM_DEBUGGER=1",
     "DEBUGGERKIT_LIBSYSTEM=1",
     "kDistReleaseBranch=$(git rev-parse --abbrev-ref HEAD)-$(uuidgen)"
   ]

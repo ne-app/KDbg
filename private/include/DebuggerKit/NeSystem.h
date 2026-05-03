@@ -4,13 +4,13 @@
 // file LICENSE or copy at http://www.apache.org/licenses/LICENSE-2.0)
 // Official repository: https://github.com/ne-foss/tier0
 
-#ifndef DK_NEKERNEL_CONTRACT_H
-#define DK_NEKERNEL_CONTRACT_H
+#ifndef DK_NESYSTEM_CONTRACT_H
+#define DK_NESYSTEM_CONTRACT_H
 
 /// @brief NeSystem Debugging Protocol
 /// @author Amlal El Mahrouss
 
-#ifdef DK_NEKERNEL_DEBUGGER
+#ifdef DK_NESYSTEM_DEBUGGER
 
 #include <Tier0Kit/Detail/Config.h>
 #include <DebuggerKit/IDebugger.h>
@@ -45,6 +45,6 @@ class NeSystemDebugger DK_DEBUGGER_CONTRACT {
 };
 }  // namespace DebuggerKit::NeSystem
 
-#endif  // ifdef DK_NEKERNEL_DEBUGGER
+#endif  // ifdef DK_NESYSTEM_DEBUGGER
 
-#endif  // DK_NEKERNEL_CONTRACT_H
+#endif  // DK_NESYSTEM_CONTRACT_H
