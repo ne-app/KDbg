@@ -1,7 +1,7 @@
 {
   "compiler_path": "clang++",
   "compiler_std": "c++20",
-  "headers_path": ["../../include/CompilerKit", "../../include/", "../../include/Tier0Kit/src/Detail"],
+  "headers_path": ["../../include/Tier0Kit", "../../include/", "../../include/Tier0Kit/src/Detail"],
   "sources_path": ["kdbg.cpp"],
   "output_name": "kdbg",
   "compiler_flags": ["-L/usr/lib", "-lDebuggerKit"],

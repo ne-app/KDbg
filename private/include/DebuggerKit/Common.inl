@@ -28,4 +28,4 @@ inline DebuggerKit::POSIX::POSIXDebugger kUserDebugger;
 
 static DebuggerKit::ProcessID kPID           = 0L;
 static DebuggerKit::CAddress  kActiveAddress = nullptr;
-static CompilerKit::STLString kPath          = "";
+static Tier0Kit::STLString kPath          = "";

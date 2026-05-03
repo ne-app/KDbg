@@ -42,14 +42,14 @@ TIER0KIT_MODULE(DebuggerPOSIX) {
     return EXIT_FAILURE;
   }
 
-  CompilerKit::install_signal(SIGINT, dbgi_ctrlc_handler);
+  Tier0Kit::install_signal(SIGINT, dbgi_ctrlc_handler);
 
   while (YES) {
     if (kKeepRunning) {
       continue;
     }
 
-    CompilerKit::STLString cmd{};
+    Tier0Kit::STLString cmd{};
 
     if (!std::getline(std::cin, cmd)) break;
 

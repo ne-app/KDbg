@@ -45,7 +45,7 @@ TIER0KIT_MODULE(DebuggerMachPOSIX) {
     return EXIT_FAILURE;
   }
 
-  CompilerKit::install_signal(SIGINT, dbgi_ctrlc_handler);
+  Tier0Kit::install_signal(SIGINT, dbgi_ctrlc_handler);
 
   while (YES) {
     if (kKeepRunning) {

@@ -16,10 +16,11 @@
 #include <DebuggerKit/IDebugger.h>
 
 namespace DebuggerKit::NeSystem {
+
 class NeSystemDebugger;
 
 /// =========================================================== ///
-/// \brief NeSystem Debugger Contract
+/// \brief NeSystem Debugger Contract for its debugging.
 /// \author Amlal El Mahrouss
 /// =========================================================== ///
 class NeSystemDebugger DK_DEBUGGER_CONTRACT {
@@ -32,17 +33,18 @@ class NeSystemDebugger DK_DEBUGGER_CONTRACT {
   NeSystemDebugger(const NeSystemDebugger&)            = default;
 
  public:
-  bool Attach(const CompilerKit::STLString& path, const CompilerKit::STLString& arg_v,
+  bool Attach(const Tier0Kit::STLString& path, const Tier0Kit::STLString& arg_v,
               ProcessID& pid) noexcept override;
-  bool BreakAt(const CompilerKit::STLString& symbol) noexcept override;
+  bool BreakAt(const Tier0Kit::STLString& symbol) noexcept override;
   bool Break() noexcept override;
   bool Continue() noexcept override;
   bool Detach() noexcept override;
 
  private:
-  CompilerKit::STLString m_kernel_path{};
+  Tier0Kit::STLString m_kernel_path{};
   Detail::dk_socket_type m_socket{0};
 };
+
 }  // namespace DebuggerKit::NeSystem
 
 #endif  // ifdef DK_NESYSTEM_DEBUGGER

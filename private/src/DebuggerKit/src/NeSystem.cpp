@@ -18,8 +18,8 @@ using namespace DebuggerKit::NeSystem;
 NeSystemDebugger::NeSystemDebugger()  = default;
 NeSystemDebugger::~NeSystemDebugger() = default;
 
-bool NeSystemDebugger::Attach(const CompilerKit::STLString& path,
-                              const CompilerKit::STLString& argv, ProcessID& pid) noexcept {
+bool NeSystemDebugger::Attach(const Tier0Kit::STLString& path,
+                              const Tier0Kit::STLString& argv, ProcessID& pid) noexcept {
   if (path.empty() || argv.empty()) return NO;
 
   m_socket = ::socket(AF_INET, SOTIER0KIT_STREAM, 0);
@@ -37,15 +37,15 @@ bool NeSystemDebugger::Attach(const CompilerKit::STLString& path,
 
   if (ret) return NO;
 
-  CompilerKit::STLString pkt = Detail::kDebugMagic;
+  Tier0Kit::STLString pkt = Detail::kDebugMagic;
   pkt += ";\r";
 
   ret = ::send(m_socket, pkt.data(), pkt.size(), 0) > 0;
   return ret;
 }
 
-bool NeSystemDebugger::BreakAt(const CompilerKit::STLString& symbol) noexcept {
-  CompilerKit::STLString pkt = Detail::kDebugMagic;
+bool NeSystemDebugger::BreakAt(const Tier0Kit::STLString& symbol) noexcept {
+  Tier0Kit::STLString pkt = Detail::kDebugMagic;
   pkt += ";SYM=\"";
   pkt += symbol;
   pkt += "\";\r";
@@ -57,7 +57,7 @@ bool NeSystemDebugger::BreakAt(const CompilerKit::STLString& symbol) noexcept {
 }
 
 bool NeSystemDebugger::Break() noexcept {
-  CompilerKit::STLString pkt = Detail::kDebugMagic;
+  Tier0Kit::STLString pkt = Detail::kDebugMagic;
   pkt += ";BRK=1;\r";
 
   auto ret = ::send(m_socket, pkt.data(), pkt.size(), 0) > 0;
@@ -65,7 +65,7 @@ bool NeSystemDebugger::Break() noexcept {
 }
 
 bool NeSystemDebugger::Continue() noexcept {
-  CompilerKit::STLString pkt = Detail::kDebugMagic;
+  Tier0Kit::STLString pkt = Detail::kDebugMagic;
   pkt += ";CONT=1;\r";
 
   auto ret = ::send(m_socket, pkt.data(), pkt.size(), 0) > 0;
@@ -74,7 +74,7 @@ bool NeSystemDebugger::Continue() noexcept {
 }
 
 bool NeSystemDebugger::Detach() noexcept {
-  CompilerKit::STLString pkt = Detail::kDebugMagic;
+  Tier0Kit::STLString pkt = Detail::kDebugMagic;
   pkt += ";DTCH=1;\r";
 
   auto ret = ::send(m_socket, pkt.data(), pkt.size(), 0) > 0;

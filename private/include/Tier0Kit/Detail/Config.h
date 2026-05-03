@@ -9,13 +9,13 @@
 /// =========================================================== ///
 /// @file detail/Config.h
 /// @author Amlal El Mahrouss
-/// @brief Basic defines and types for CompilerKit.
+/// @brief Basic defines and types for Tier0Kit.
 /// =========================================================== ///
 
 #include <Tier0Kit/Detail/PreConfig.h>
 #include <ocl/tproc.hpp>
 
-namespace CompilerKit {
+namespace Tier0Kit {
 
 inline static constexpr int kBaseYear = 1900;
 using STLString                       = std::string;
@@ -65,6 +65,6 @@ inline bool install_signal(Int32 signal, void (*handler)(int)) noexcept {
   return true;
 }
 
-}  // namespace CompilerKit
+}  // namespace Tier0Kit
 
 #endif  // __TIER0KIT_CONFIG_H__

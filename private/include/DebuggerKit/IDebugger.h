@@ -29,9 +29,9 @@ class IDebugger {
   IDebugger(const IDebugger&)            = default;
 
  public:
-  virtual bool Attach(const CompilerKit::STLString& path, const CompilerKit::STLString& argv,
+  virtual bool Attach(const Tier0Kit::STLString& path, const Tier0Kit::STLString& argv,
                       ProcessID& pid) noexcept                        = 0;
-  virtual bool BreakAt(const CompilerKit::STLString& symbol) noexcept = 0;
+  virtual bool BreakAt(const Tier0Kit::STLString& symbol) noexcept = 0;
   virtual bool Break() noexcept                                       = 0;
   virtual bool Continue() noexcept                                    = 0;
   virtual bool Detach() noexcept                                      = 0;

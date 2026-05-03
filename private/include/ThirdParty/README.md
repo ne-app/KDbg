@@ -6,4 +6,4 @@ You will need:
 - Boost 1.90.0+
 - A Modern C++ Compiler.
 
-In order to compile CompilerKit.
+In order to compile Tier0Kit.

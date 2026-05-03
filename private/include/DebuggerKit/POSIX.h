@@ -37,7 +37,7 @@ class POSIXDebugger DK_DEBUGGER_CONTRACT {
   POSIXDebugger(const POSIXDebugger&)            = default;
 
  public:
-  bool Attach(const CompilerKit::STLString& path, const CompilerKit::STLString& argv,
+  bool Attach(const Tier0Kit::STLString& path, const Tier0Kit::STLString& argv,
               ProcessID& pid) noexcept override {
     pid = fork();
 
@@ -66,7 +66,7 @@ class POSIXDebugger DK_DEBUGGER_CONTRACT {
     return true;
   }
 
-  void SetPath(const CompilerKit::STLString& path) noexcept {
+  void SetPath(const Tier0Kit::STLString& path) noexcept {
     if (path.empty()) {
       return;
     }
@@ -74,7 +74,7 @@ class POSIXDebugger DK_DEBUGGER_CONTRACT {
     m_path = path;
   }
 
-  bool BreakAt(const CompilerKit::STLString& symbol) noexcept override {
+  bool BreakAt(const Tier0Kit::STLString& symbol) noexcept override {
     if (!m_path.empty() && std::filesystem::exists(m_path) &&
         std::filesystem::is_regular_file(m_path)) {
       auto handle = dlopen(m_path.c_str(), RTLD_LAZY);
@@ -106,7 +106,7 @@ class POSIXDebugger DK_DEBUGGER_CONTRACT {
 
  private:
   ProcessID              mPid{0};
-  CompilerKit::STLString m_path;
+  Tier0Kit::STLString m_path;
 };
 }  // namespace DebuggerKit::POSIX
 

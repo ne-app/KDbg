@@ -38,7 +38,7 @@ TIER0KIT_MODULE(DebuggerNeKernel) {
 
     kStdOut << "[+] KIP (Kernel:IP) set to: " << kPath << "\n";
 
-    CompilerKit::install_signal(SIGINT, dbgi_ctrlc_handler);
+    Tier0Kit::install_signal(SIGINT, dbgi_ctrlc_handler);
 
     kKernelDebugger.Attach(kPath, argv[4], kPID);
 
