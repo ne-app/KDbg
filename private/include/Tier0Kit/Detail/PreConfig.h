@@ -92,9 +92,9 @@
 
 #define TIER0KIT_MODULE(name) extern "C" int name(int argc, char** argv)
 
-#ifdef MSVC
+#ifdef _MSC_VER
 #pragma scalar_storage_order big - endian
-#endif  // ifdef MSVC
+#endif  // ifdef _MSC_VER
 
 #define TIER0KIT_COPY_DELETE(KLASS)          \
   KLASS& operator=(const KLASS&) = delete; \
