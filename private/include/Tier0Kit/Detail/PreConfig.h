@@ -23,6 +23,7 @@
 #endif  // ifndef NO
 
 #define SizeType size_t
+#define SizeT SizeType
 
 #define VoidPtr void*
 #define voidPtr VoidPtr
@@ -41,10 +42,13 @@
 #define Int8 int8_t
 #define UInt8 uint8_t
 
+#ifndef _WIN32
 #include <signal.h>
-#include <stdint.h>
 #include <time.h>
 #include <unistd.h>
+#endif
+
+#include <cstdint>
 #include <cassert>
 #include <filesystem>
 #include <fstream>
@@ -59,8 +63,8 @@
 
 #define kDistRelease ToString(kDistReleaseBranch)
 
-#define kDistVersion "v0.1.3-tier0"
-#define kDistVersionBCD 0x0103
+#define kDistVersion "v0.1.4-tier0"
+#define kDistVersionBCD 0x0104
 
 #define MUST_PASS(E) assert(E)
 

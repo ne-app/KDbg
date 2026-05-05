@@ -13,13 +13,21 @@
 /// =========================================================== ///
 
 #include <Tier0Kit/Detail/PreConfig.h>
+
+#ifdef __TIER0_USE_OCL__
 #include <ocl/tproc.hpp>
+#endif
 
 namespace Tier0Kit {
 
 inline static constexpr int kBaseYear = 1900;
 using STLString                       = std::string;
+
+#ifdef __TIER0_USE_OCL__
 using RopeString                      = ocl::tproc::crope;
+#else
+using RopeString = STLString;
+#endif
 
 inline STLString current_date() noexcept {
   auto time_data   = time(nullptr);
