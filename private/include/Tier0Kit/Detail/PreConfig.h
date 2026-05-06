@@ -93,7 +93,7 @@
 #define TIER0KIT_MODULE(name) extern "C" int name(int argc, char** argv)
 
 #ifdef _MSC_VER
-#pragma scalar_storage_order big - endian
+#pragma scalar_storage_order big-endian
 #endif  // ifdef _MSC_VER
 
 #define TIER0KIT_COPY_DELETE(KLASS)          \
