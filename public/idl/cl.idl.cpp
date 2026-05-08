@@ -22,6 +22,11 @@ int main(int argc, char** argv) {
     const char* key   = argv[i];
     const char* value = argv[i + 1];
 
+    if (!value || !key) {
+      std::filesystem::remove(argv[1]);
+      return EXIT_FAILURE;
+    }
+
     if (::strlen(value) > LIBIDL_MAX_LAYOUT_LEN) break;
     if (::strlen(key) > LIBIDL_MAX_LAYOUT_LEN) break;
 
