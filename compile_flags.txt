@@ -1,6 +1,7 @@
 -std=c++20
 -Iprivate/include/
 -Ipublic/
+-Ipublic/kernel_tools
 -Ivendor/
 -I./
 -DTIER0KIT_USE_STRUCTS
