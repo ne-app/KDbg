@@ -4,25 +4,25 @@
 // file LICENSE or copy at http://www.apache.org/licenses/LICENSE-2.0)
 // Official repository: https://github.com/ne-foss/tier0
 
-#ifdef DK_NESYSTEM_DEBUGGER
+#ifdef DK_KRNL_DEBUGGER
 
 /// @author Amlal El Mahrouss
 /// @brief Kernel Debugger Protocol
 
-#include <DebuggerKit/NeSystem.h>
+#include <DebuggerKit/Krnl.h>
 #include <ThirdParty/Dialogs/Dialogs.h>
 
 using namespace DebuggerKit::Detail;
-using namespace DebuggerKit::NeSystem;
+using namespace DebuggerKit::Krnl;
 
-NeSystemDebugger::NeSystemDebugger()  = default;
-NeSystemDebugger::~NeSystemDebugger() = default;
+KrnlDebugger::KrnlDebugger()  = default;
+KrnlDebugger::~KrnlDebugger() = default;
 
-bool NeSystemDebugger::Attach(const Tier0Kit::STLString& path,
+bool KrnlDebugger::Attach(const Tier0Kit::STLString& path,
                               const Tier0Kit::STLString& argv, ProcessID& pid) noexcept {
   if (path.empty() || argv.empty()) return NO;
 
-  m_socket = ::socket(AF_INET, SOTIER0KIT_STREAM, 0);
+  m_socket = ::socket(AF_INET, SOCK_STREAM, 0);
 
   if (m_socket == -1) return NO;
 
@@ -39,12 +39,14 @@ bool NeSystemDebugger::Attach(const Tier0Kit::STLString& path,
 
   Tier0Kit::STLString pkt = Detail::kDebugMagic;
   pkt += ";\r";
+  //! common enough baud rate for a debugger.
+  pkt += "BAUD=38400;\r";
 
   ret = ::send(m_socket, pkt.data(), pkt.size(), 0) > 0;
   return ret;
 }
 
-bool NeSystemDebugger::BreakAt(const Tier0Kit::STLString& symbol) noexcept {
+bool KrnlDebugger::BreakAt(const Tier0Kit::STLString& symbol) noexcept {
   Tier0Kit::STLString pkt = Detail::kDebugMagic;
   pkt += ";SYM=\"";
   pkt += symbol;
@@ -56,7 +58,7 @@ bool NeSystemDebugger::BreakAt(const Tier0Kit::STLString& symbol) noexcept {
   return ret;
 }
 
-bool NeSystemDebugger::Break() noexcept {
+bool KrnlDebugger::Break() noexcept {
   Tier0Kit::STLString pkt = Detail::kDebugMagic;
   pkt += ";BRK=1;\r";
 
@@ -64,7 +66,7 @@ bool NeSystemDebugger::Break() noexcept {
   return ret;
 }
 
-bool NeSystemDebugger::Continue() noexcept {
+bool KrnlDebugger::Continue() noexcept {
   Tier0Kit::STLString pkt = Detail::kDebugMagic;
   pkt += ";CONT=1;\r";
 
@@ -73,7 +75,7 @@ bool NeSystemDebugger::Continue() noexcept {
   return NO;
 }
 
-bool NeSystemDebugger::Detach() noexcept {
+bool KrnlDebugger::Detach() noexcept {
   Tier0Kit::STLString pkt = Detail::kDebugMagic;
   pkt += ";DTCH=1;\r";
 
@@ -84,4 +86,4 @@ bool NeSystemDebugger::Detach() noexcept {
   return ret;
 }
 
-#endif  // DK_NESYSTEM_DEBUGGER
+#endif  // DK_KRNL_DEBUGGER

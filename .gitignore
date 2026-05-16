@@ -38,8 +38,8 @@ src/*/pef-*-cdrv
 
 Examples/
 
-# NeSystem executable
-*.exec
+# Krnl Executable
+*.exe
 *.bin
 
 # Compiled class file

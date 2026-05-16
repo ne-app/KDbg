@@ -6,7 +6,7 @@
 #include <Tier0Kit/Detail/Config.h>
 
 /// @file kdbg.cc
-/// @brief NeSystem debugger.
+/// @brief Krnl debugger.
 
 TIER0KIT_IMPORT_C Int32 DebuggerNeKernel(Int32 argc, char const* argv[]);
 

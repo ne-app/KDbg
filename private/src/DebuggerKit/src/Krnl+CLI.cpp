@@ -4,14 +4,14 @@
 // file LICENSE or copy at http://www.apache.org/licenses/LICENSE-2.0)
 // Official repository: https://github.com/ne-foss/tier0
 
-#ifdef DK_NESYSTEM_DEBUGGER
+#ifdef DK_KRNL_DEBUGGER
 
-#include <DebuggerKit/NeSystem.h>
+#include <DebuggerKit/Krnl.h>
 #include <ThirdParty/Dialogs/Dialogs.h>
 
 #include <DebuggerKit/Common.inl>
 
-using namespace DebuggerKit::NeSystem;
+using namespace DebuggerKit::Krnl;
 
 static void dbgi_ctrlc_handler(std::int32_t _) {
   if (!kPID || kPath.empty()) {
@@ -27,7 +27,7 @@ static void dbgi_ctrlc_handler(std::int32_t _) {
 
 TIER0KIT_MODULE(DebuggerNeKernel) {
   pfd::notify("Debugger Event",
-              "NeSystem Debugger\n(C) 2025-2026 Amlal El Mahrouss and contributors, all "
+              "Krnl Debugger\n(C) 2025-2026 Amlal El Mahrouss and contributors, all "
               "rights reserved.");
 
   if (argc >= 5 && std::string(argv[1]) == "-k" && argv[2] != nullptr &&
@@ -95,4 +95,4 @@ TIER0KIT_MODULE(DebuggerNeKernel) {
   return EXIT_FAILURE;
 }
 
-#endif  // DK_NESYSTEM_DEBUGGER
+#endif  // DK_KRNL_DEBUGGER

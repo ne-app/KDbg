@@ -4,33 +4,33 @@
 // file LICENSE or copy at http://www.apache.org/licenses/LICENSE-2.0)
 // Official repository: https://github.com/ne-foss/tier0
 
-#ifndef DK_NESYSTEM_CONTRACT_H
-#define DK_NESYSTEM_CONTRACT_H
+#ifndef DK_KRNL_CONTRACT_H
+#define DK_KRNL_CONTRACT_H
 
-/// @brief NeSystem Debugging Protocol
+/// @brief Krnl Debugging Protocol
 /// @author Amlal El Mahrouss
 
-#ifdef DK_NESYSTEM_DEBUGGER
+#ifdef DK_KRNL_DEBUGGER
 
 #include <Tier0Kit/Detail/Config.h>
 #include <DebuggerKit/IDebugger.h>
 
-namespace DebuggerKit::NeSystem {
+namespace DebuggerKit::Krnl {
 
-class NeSystemDebugger;
+class KrnlDebugger;
 
 /// =========================================================== ///
-/// \brief NeSystem Debugger Contract for its debugging.
+/// \brief Krnl Debugger Contract for its debugging.
 /// \author Amlal El Mahrouss
 /// =========================================================== ///
-class NeSystemDebugger DK_DEBUGGER_CONTRACT {
+class KrnlDebugger DK_DEBUGGER_CONTRACT {
  public:
-  NeSystemDebugger();
-  virtual ~NeSystemDebugger() override;
+  KrnlDebugger();
+  virtual ~KrnlDebugger() override;
 
  public:
-  NeSystemDebugger& operator=(const NeSystemDebugger&) = default;
-  NeSystemDebugger(const NeSystemDebugger&)            = default;
+  KrnlDebugger& operator=(const KrnlDebugger&) = default;
+  KrnlDebugger(const KrnlDebugger&)            = default;
 
  public:
   bool Attach(const Tier0Kit::STLString& path, const Tier0Kit::STLString& arg_v,
@@ -45,8 +45,8 @@ class NeSystemDebugger DK_DEBUGGER_CONTRACT {
   Detail::dk_socket_type m_socket{0};
 };
 
-}  // namespace DebuggerKit::NeSystem
+}  // namespace DebuggerKit::Krnl
 
-#endif  // ifdef DK_NESYSTEM_DEBUGGER
+#endif  // ifdef DK_KRNL_DEBUGGER
 
-#endif  // DK_NESYSTEM_CONTRACT_H
+#endif  // DK_KRNL_CONTRACT_H

@@ -12,8 +12,8 @@
 
 inline bool kKeepRunning = false;
 
-#ifdef DK_NESYSTEM_DEBUGGER
-inline DebuggerKit::NeSystem::NeSystemDebugger kKernelDebugger;
+#ifdef DK_KRNL_DEBUGGER
+inline DebuggerKit::Krnl::KrnlDebugger kKernelDebugger;
 #else
 #ifdef DK_MACH_DEBUGGER
 
