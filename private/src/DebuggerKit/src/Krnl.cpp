@@ -4,6 +4,7 @@
 // file LICENSE or copy at http://www.apache.org/licenses/LICENSE-2.0)
 // Official repository: https://github.com/ne-foss/tier0
 
+#include <netinet/in.h>
 #ifdef DK_KRNL_DEBUGGER
 
 /// @author Amlal El Mahrouss
@@ -27,6 +28,7 @@ bool KrnlDebugger::Attach(const Tier0Kit::STLString& path,
   if (m_socket == -1) return NO;
 
   struct sockaddr_in server_addr;
+  ::memset(&server_addr,0, sizeof(struct sockaddr_in));
 
   server_addr.sin_family = AF_INET;
   server_addr.sin_port   = htons(kDebugPort);
