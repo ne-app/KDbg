@@ -7,7 +7,7 @@
 #ifndef DK_KRNL_CONTRACT_H
 #define DK_KRNL_CONTRACT_H
 
-/// @brief Krnl Debugging Protocol
+/// @brief ANT Debugging Protocol
 /// @author Amlal El Mahrouss
 
 #ifdef DK_KRNL_DEBUGGER
@@ -15,12 +15,12 @@
 #include <Tier0Kit/Detail/Config.h>
 #include <DebuggerKit/IDebugger.h>
 
-namespace DebuggerKit::Krnl {
+namespace DebuggerKit::ANT {
 
 class KrnlDebugger;
 
 /// =========================================================== ///
-/// \brief Krnl Debugger Contract for its debugging.
+/// \brief ANT Debugger Contract for its debugging.
 /// \author Amlal El Mahrouss
 /// =========================================================== ///
 class KrnlDebugger DK_DEBUGGER_CONTRACT {
@@ -45,7 +45,7 @@ class KrnlDebugger DK_DEBUGGER_CONTRACT {
   Detail::dk_socket_type m_socket{0};
 };
 
-}  // namespace DebuggerKit::Krnl
+}  // namespace DebuggerKit::ANT
 
 #endif  // ifdef DK_KRNL_DEBUGGER
 

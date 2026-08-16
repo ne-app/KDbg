@@ -4,17 +4,22 @@
 // file LICENSE or copy at http://www.apache.org/licenses/LICENSE-2.0)
 // Official repository: https://github.com/ne-foss/tier0
 
+#ifndef _WIN32
 #include <netinet/in.h>
+#else
+#include <winsock.h>
+#endif
+
 #ifdef DK_KRNL_DEBUGGER
 
 /// @author Amlal El Mahrouss
 /// @brief Kernel Debugger Protocol
 
-#include <DebuggerKit/Krnl.h>
+#include <DebuggerKit/ANT.h>
 #include <ThirdParty/Dialogs/Dialogs.h>
 
 using namespace DebuggerKit::Detail;
-using namespace DebuggerKit::Krnl;
+using namespace DebuggerKit::ANT;
 
 KrnlDebugger::KrnlDebugger()  = default;
 KrnlDebugger::~KrnlDebugger() = default;

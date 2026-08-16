@@ -6,7 +6,7 @@
     "../../include"
   ],
   "sources_path": [ "src/*.cpp" ],
-  "output_name": "Ne-app.DebuggerKit.dll",
+  "output_name": "AntDebuggerKit.dll",
   "compiler_flags": [ "-fPIC", "-shared" ],
   "cpp_macros": [
     "__TIER0KIT__=202505",

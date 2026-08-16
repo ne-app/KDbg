@@ -9,7 +9,8 @@ local.properties
 .loadpath
 .recommenders
 udbg
-
+kdbg
+dbg
 
 *.pp.nc
 *.ignore
@@ -38,7 +39,7 @@ src/*/pef-*-cdrv
 
 Examples/
 
-# Krnl Executable
+# ANT Executable
 *.exe
 *.bin
 

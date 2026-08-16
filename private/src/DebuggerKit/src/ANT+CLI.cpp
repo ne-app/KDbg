@@ -6,12 +6,12 @@
 
 #ifdef DK_KRNL_DEBUGGER
 
-#include <DebuggerKit/Krnl.h>
+#include <DebuggerKit/ANT.h>
 #include <ThirdParty/Dialogs/Dialogs.h>
 
 #include <DebuggerKit/Common.inl>
 
-using namespace DebuggerKit::Krnl;
+using namespace DebuggerKit::ANT;
 
 static void dbgi_ctrlc_handler(std::int32_t _) {
   if (!kPID || kPath.empty()) {
@@ -20,14 +20,14 @@ static void dbgi_ctrlc_handler(std::int32_t _) {
 
   kKernelDebugger.Break();
 
-  pfd::notify("Debugger Event", "Breakpoint hit!");
+  pfd::notify("ANT Kernel Debugger Event", "Breakpoint has been hit!");
 
   kKeepRunning = false;
 }
 
 TIER0KIT_MODULE(DebuggerNeKernel) {
-  pfd::notify("Debugger Event",
-              "Krnl Debugger\n(C) 2025-2026 Amlal El Mahrouss and contributors, all "
+  pfd::notify("ANT Kernel Debugger Event",
+              "ANT ANT Debugger\n(C) 2025-2026 Ne.app, all "
               "rights reserved.");
 
   if (argc >= 5 && std::string(argv[1]) == "-k" && argv[2] != nullptr &&
@@ -56,7 +56,7 @@ TIER0KIT_MODULE(DebuggerNeKernel) {
 
           kStdOut << "[+] Continuing...\n";
 
-          pfd::notify("Debugger Event", "Continuing...");
+          pfd::notify("ANT Kernel Debugger Event", "Continuing...");
         }
       }
 
@@ -81,7 +81,7 @@ TIER0KIT_MODULE(DebuggerNeKernel) {
         std::getline(std::cin, cmd);
 
         if (kKernelDebugger.BreakAt(cmd)) {
-          pfd::notify("Debugger Event", "Add breakpoint at: " + cmd);
+          pfd::notify("ANT Kernel Debugger Event", "Add breakpoint at: " + cmd);
         }
       }
     }

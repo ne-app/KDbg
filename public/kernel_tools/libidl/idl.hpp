@@ -21,7 +21,7 @@
     ::memset(&idl, 0, sizeof(idl));                                           \
     idl.key_.layout_ = 0;                                                     \
     ::memcpy(idl.key_.val_, KEY, ::strlen(KEY));                              \
-    idl.value_.layout_ = ::strlen(KEY) + LIBIDL_MAX_LAYOUT_LEN;                 \
+    idl.value_.layout_ = ::strlen(KEY) + LIBIDL_MAX_LAYOUT_LEN;               \
     ::memcpy(idl.value_.val_, VALUE, ::strlen(VALUE));                        \
     ::memcpy(idl.magic_, LIBIDL_MAGIC_NUMBER, ::strlen(LIBIDL_MAGIC_NUMBER)); \
     FP.write((char*) &idl, sizeof(idl));                                      \

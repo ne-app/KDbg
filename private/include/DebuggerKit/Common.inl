@@ -13,7 +13,7 @@
 inline bool kKeepRunning = false;
 
 #ifdef DK_KRNL_DEBUGGER
-inline DebuggerKit::Krnl::KrnlDebugger kKernelDebugger;
+inline DebuggerKit::ANT::KrnlDebugger kKernelDebugger;
 #else
 #ifdef DK_MACH_DEBUGGER
 

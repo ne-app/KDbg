@@ -12,7 +12,7 @@ static auto kMinArgs{4};
 
 int main(int argc, char** argv) {
   if (argc < kMinArgs) {
-    std::cout << "cl.idl: invalid argument count, a minimum of 3 is required.\n";
+    std::cout << "cl.idl.exe: invalid argument count, a minimum of 3 is required.\n";
     return EXIT_FAILURE;
   }
 
