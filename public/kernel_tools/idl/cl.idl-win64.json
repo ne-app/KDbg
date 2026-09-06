@@ -9,8 +9,8 @@
     ],
     "output_name": "./dist/cl.idl.exe",
     "cpp_macros": [
-        "kMkfsHeFSVersion=0x0100",
-        "kMkfsHeFSVersionHighest=0x0100",
-        "kMkfsHeFSVersionLowest=0x0100"
+        "kClIDLVersion=0x0100",
+        "kClIDLVersionHighest=0x0100",
+        "kClIDLVersionLowest=0x0100"
     ]
 }
