@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<NavigationHints>
+	<Pragma Key="ImageType">
+		DEBUG
+	</Pragma>
+	<Pragma Key="PreprocessorMacro">
+		_DEBUG
+	</Pragma>
+	<Image url="kdbg://antoskrnl.exe"/>
+	<Image url="kdbg://rpchost.exe"/>
+	<Image url="kdbg://anthost.exe"/>
+	<Image url="kdbg://HAL.dll"/>
+	<Image url="kdbg://System.dll"/>
+	<Image url="kdbg://DDK.dll"/>
+	<Image url="kdbg://antosldr.exe"/>
+</NavigationHints>
