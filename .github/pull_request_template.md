@@ -2,7 +2,7 @@
 
 ## Description:
 
-<Describe briefly your PR here.>
+<Describe briefly your PR here>
 
 ## PR Rationale:
 
