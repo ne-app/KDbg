@@ -54,13 +54,15 @@ typedef uint64_t ProcessID;
 /// =========================================================== ///
 typedef char* CAddress;
 
+/// @note This is an open protocol; it is updated accordingly to Ant latest specs here.
 namespace Detail {
   constexpr auto     kDebugCmdLen  = 256U;
   constexpr auto     kDebugPort    = 51820;
-  constexpr auto     kDebugMagic   = "NE1.0.0;";
-  constexpr uint16_t kDebugVersion = 0x0100;
+  constexpr auto     kDebugMagic   = "AN1.0.1;";
+  constexpr uint16_t kDebugVersion = 0x0101;
   constexpr auto     kDebugDelim   = ';';
   constexpr auto     kDebugEnd     = '\r';
+  
   using dk_socket_type             = int64_t;
 }  // namespace Detail
 }  // namespace DebuggerKit
