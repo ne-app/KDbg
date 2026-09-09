@@ -8,10 +8,10 @@
 /// @file kdbg.cc
 /// @brief ANT debugger.
 
-TIER0KIT_IMPORT_C Int32 DebuggerNeKernel(Int32 argc, char const* argv[]);
+TIER0KIT_IMPORT_C Int32 DebuggerAnt(Int32 argc, char const* argv[]);
 
 /// @brief Debugger entrypoint.
 /// @return Status code of debugger.
 Int32 main(Int32 argc, char const* argv[]) {
-  return DebuggerNeKernel(argc, argv);
+  return DebuggerAnt(argc, argv);
 }
