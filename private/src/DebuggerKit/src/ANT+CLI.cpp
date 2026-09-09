@@ -25,9 +25,9 @@ static void dbgi_ctrlc_handler(std::int32_t _) {
   kKeepRunning = false;
 }
 
-TIER0KIT_MODULE(DebuggerNeKernel) {
+TIER0KIT_MODULE(DebuggerAnt) {
   pfd::notify("ANT Kernel Debugger Event",
-              "ANT ANT Debugger\n(C) 2025-2026 Ne.app, all "
+              "ANT Kernel Debugger\n(C) 2025-2026 Ne.app, all "
               "rights reserved.");
 
   if (argc >= 5 && std::string(argv[1]) == "-k" && argv[2] != nullptr &&
