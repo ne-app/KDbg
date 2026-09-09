@@ -4,7 +4,7 @@
 // file LICENSE or copy at http://www.apache.org/licenses/LICENSE-2.0)
 // Official repository: https://github.com/ne-app/kdbg
 
-#ifndef _WIN32
+#ifndef DEBUGGERKIT_WINDOWS
 #include <netinet/in.h>
 #else
 #include <winsock.h>
@@ -13,7 +13,7 @@
 #ifdef DK_KRNL_DEBUGGER
 
 /// @author Amlal El Mahrouss
-/// @brief Kernel Debugger Protocol
+/// @brief Kernel Debugger Protocol for Ne.app Ant
 
 #include <DebuggerKit/ANT.h>
 #include <ThirdParty/Dialogs/Dialogs.h>
@@ -21,10 +21,10 @@
 using namespace DebuggerKit::Detail;
 using namespace DebuggerKit::ANT;
 
-KrnlDebugger::KrnlDebugger()  = default;
-KrnlDebugger::~KrnlDebugger() = default;
+IKrnlDebugger::IKrnlDebugger()  = default;
+IKrnlDebugger::~IKrnlDebugger() = default;
 
-bool KrnlDebugger::Attach(const Tier0Kit::STLString& path,
+bool IKrnlDebugger::Attach(const Tier0Kit::STLString& path,
                               const Tier0Kit::STLString& argv, ProcessID& pid) noexcept {
   if (path.empty() || argv.empty()) return NO;
 
@@ -45,6 +45,9 @@ bool KrnlDebugger::Attach(const Tier0Kit::STLString& path,
   if (ret) return NO;
 
   Tier0Kit::STLString pkt = Detail::kDebugMagic;
+
+  if (pkt.empty()) return NO;
+
   pkt += ";\r";
   //! common enough baud rate for a debugger.
   pkt += "BAUD=38400;\r";
@@ -53,8 +56,11 @@ bool KrnlDebugger::Attach(const Tier0Kit::STLString& path,
   return ret;
 }
 
-bool KrnlDebugger::BreakAt(const Tier0Kit::STLString& symbol) noexcept {
+bool IKrnlDebugger::BreakAt(const Tier0Kit::STLString& symbol) noexcept {
   Tier0Kit::STLString pkt = Detail::kDebugMagic;
+
+  if (pkt.empty()) return NO;
+
   pkt += ";SYM=\"";
   pkt += symbol;
   pkt += "\";\r";
@@ -65,7 +71,7 @@ bool KrnlDebugger::BreakAt(const Tier0Kit::STLString& symbol) noexcept {
   return ret;
 }
 
-bool KrnlDebugger::Break() noexcept {
+bool IKrnlDebugger::Break() noexcept {
   Tier0Kit::STLString pkt = Detail::kDebugMagic;
   pkt += ";BRK=1;\r";
 
@@ -73,22 +79,26 @@ bool KrnlDebugger::Break() noexcept {
   return ret;
 }
 
-bool KrnlDebugger::Continue() noexcept {
+bool IKrnlDebugger::Continue() noexcept {
   Tier0Kit::STLString pkt = Detail::kDebugMagic;
+  if (pkt.empty()) return NO;
+
   pkt += ";CONT=1;\r";
 
   auto ret = ::send(m_socket, pkt.data(), pkt.size(), 0) > 0;
   return ret;
-  return NO;
 }
 
-bool KrnlDebugger::Detach() noexcept {
+bool IKrnlDebugger::Detach() noexcept {
   Tier0Kit::STLString pkt = Detail::kDebugMagic;
   pkt += ";DTCH=1;\r";
 
   auto ret = ::send(m_socket, pkt.data(), pkt.size(), 0) > 0;
 
-  if (ret) ::close(m_socket);
+  if (ret)
+    ::close(m_socket);
+  else
+    return NO;
 
   return ret;
 }

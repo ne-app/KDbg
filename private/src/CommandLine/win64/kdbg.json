@@ -6,7 +6,8 @@
   "output_name": "kdbg.exe",
   "compiler_flags": ["-L../../DebuggerKit/", "-lDebuggerKit"],
   "cpp_macros": [
-    "__DBG__=202401",
+    "__DBG__=202609",
+    "__KDBG__=__DBG__",
     "kDistReleaseBranch=$(git rev-parse --abbrev-ref HEAD)-$(uuidgen)"
   ]
 }
