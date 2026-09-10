@@ -7,16 +7,14 @@
 #ifdef DK_KRNL_DEBUGGER
 
 #include <DebuggerKit/ANT.h>
-#include <ThirdParty/Dialogs/Dialogs.h>
-
 #include <DebuggerKit/Common.inl>
+#include <ThirdParty/Dialogs/Dialogs.h>
 
 using namespace DebuggerKit::ANT;
 
-static void dbgi_ctrlc_handler(std::int32_t _) {
-  if (!kPID || kPath.empty()) {
+static void dbgi_ctrlc_handler(std::int32_t) {
+  if (!kPID || kPath.empty())
     return;
-  }
 
   kKernelDebugger.Break();
 
@@ -25,9 +23,9 @@ static void dbgi_ctrlc_handler(std::int32_t _) {
   kKeepRunning = false;
 }
 
-TIER0KIT_MODULE(DebuggerNeKernel) {
+TIER0KIT_MODULE(DebuggerAnt) {
   pfd::notify("ANT Kernel Debugger Event",
-              "ANT ANT Debugger\n(C) 2025-2026 Ne.app, all "
+              "ANT Kernel Debugger\n(C) 2025-2026 Ne.app, all "
               "rights reserved.");
 
   if (argc >= 5 && std::string(argv[1]) == "-k" && argv[2] != nullptr &&

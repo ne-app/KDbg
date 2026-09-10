@@ -4,8 +4,8 @@
 // file LICENSE or copy at http://www.apache.org/licenses/LICENSE-2.0)
 // Official repository: https://github.com/ne-app/kdbg
 
-#ifndef DK_KRNL_CONTRACT_H
-#define DK_KRNL_CONTRACT_H
+#ifndef DK_KRNL_ANT_H
+#define DK_KRNL_ANT_H
 
 /// @brief ANT Debugging Protocol
 /// @author Amlal El Mahrouss
@@ -17,20 +17,20 @@
 
 namespace DebuggerKit::ANT {
 
-class KrnlDebugger;
+class IKrnlDebugger;
 
 /// =========================================================== ///
 /// \brief ANT Debugger Contract for its debugging.
 /// \author Amlal El Mahrouss
 /// =========================================================== ///
-class KrnlDebugger DK_DEBUGGER_CONTRACT {
+class IKrnlDebugger DK_DEBUGGER_CONTRACT {
  public:
-  KrnlDebugger();
-  virtual ~KrnlDebugger() override;
+  IKrnlDebugger();
+  virtual ~IKrnlDebugger() override;
 
  public:
-  KrnlDebugger& operator=(const KrnlDebugger&) = default;
-  KrnlDebugger(const KrnlDebugger&)            = default;
+  IKrnlDebugger& operator=(const IKrnlDebugger&) = default;
+  IKrnlDebugger(const IKrnlDebugger&)            = default;
 
  public:
   bool Attach(const Tier0Kit::STLString& path, const Tier0Kit::STLString& arg_v,
@@ -49,4 +49,4 @@ class KrnlDebugger DK_DEBUGGER_CONTRACT {
 
 #endif  // ifdef DK_KRNL_DEBUGGER
 
-#endif  // DK_KRNL_CONTRACT_H
+#endif  // DK_KRNL_ANT_H
