@@ -96,7 +96,7 @@ bool IKrnlDebugger::Detach() noexcept {
   auto ret = ::send(m_socket, pkt.data(), pkt.size(), 0) > 0;
 
   if (ret)
-    ::close(m_socket);
+    ::closesocket(m_socket);
   else
     return NO;
 

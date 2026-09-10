@@ -14,18 +14,8 @@ inline bool kKeepRunning = false;
 
 #ifdef DK_KRNL_DEBUGGER
 inline DebuggerKit::ANT::IKrnlDebugger kKernelDebugger;
-#else
-#ifdef DK_MACH_DEBUGGER
-
-inline DebuggerKit::POSIX::MachDebugger kUserDebugger;
-
-#else
-
-inline DebuggerKit::POSIX::POSIXDebugger kUserDebugger;
-
-#endif
 #endif
 
-static DebuggerKit::ProcessID kPID           = 0L;
-static DebuggerKit::CAddress  kActiveAddress = nullptr;
-static Tier0Kit::STLString kPath          = "";
+inline DebuggerKit::ProcessID kPID           = 0L;
+inline DebuggerKit::CAddress  kActiveAddress = nullptr;
+inline Tier0Kit::STLString     kPath          = "";

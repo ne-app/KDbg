@@ -8,7 +8,6 @@
 #define TIER0KIT_DEBUGGERKIT_DEBUGGERCONTRACT_H
 
 #include <DebuggerKit/Detail/Config.h>
-#include <unordered_map>
 
 #define DK_DEBUGGER_CONTRACT : public ::DebuggerKit::IDebugger
 

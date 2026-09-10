@@ -7,14 +7,13 @@
   ],
   "sources_path": [ "src/*.cpp" ],
   "output_name": "AntDebuggerKit.dll",
-  "compiler_flags": ["-shared" ],
+  "compiler_flags": [ "-shared", "-lws2_32" ],
   "cpp_macros": [
     "__TIER0KIT__=202505",
     "TIER0KIT_USE_STRUCTS=1",
     "DEBUGGERKIT_WINDOWS=1",
     "_UNICODE=1",
-    "DK_KRNL_DEBUGGER=1",
-    "kDistReleaseBranch=$(git rev-parse --abbrev-ref HEAD)-$(uuidgen)"
+    "DK_KRNL_DEBUGGER=1"
   ]
 }
 

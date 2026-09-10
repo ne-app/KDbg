@@ -25,6 +25,14 @@
 #include <unistd.h>
 #endif
 
+#ifdef DEBUGGERKIT_WINDOWS
+#include <winsock2.h>
+#include <ws2tcpip.h>
+#include <windows.h>
+#endif
+
+#include <unordered_map>
+
 #ifdef __APPLE__
 #include <dlfcn.h>
 
