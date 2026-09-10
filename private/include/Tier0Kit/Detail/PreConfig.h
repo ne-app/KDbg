@@ -86,9 +86,13 @@
 #define kObjectFileExt ".obj"
 #define kBinaryFileExt ".bin"
 
+#ifndef kAsmFileExts
 #define kAsmFileExts {".64x", ".32x", ".masm", ".s", ".S", ".asm", ".x64"}
+#endif
 
+#ifndef kAsmFileExtsMax
 #define kAsmFileExtsMax (7U)
+#endif
 
 #define TIER0KIT_MODULE(name) extern "C" int name(int argc, char** argv)
 

@@ -12,6 +12,7 @@
 
 #include <Tier0Kit/Detail/Config.h>
 
+#ifndef DEBUGGERKIT_WINDOWS
 #include <arpa/inet.h>
 #include <sys/socket.h>
 #include <sys/types.h>
@@ -22,10 +23,11 @@
 #include <sys/user.h>
 #include <sys/wait.h>
 #include <unistd.h>
-
-#include <dlfcn.h>
+#endif
 
 #ifdef __APPLE__
+#include <dlfcn.h>
+
 #include <mach-o/dyld.h>
 #include <mach/mach.h>
 #include <mach/mach_error.h>
