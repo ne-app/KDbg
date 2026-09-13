@@ -3,22 +3,23 @@
 // Licensed under the Apache License, Version 2.0 (see LICENSE file)
 // Official repository: https://github.com/ne-app/kdbg
 
-#include <cstdlib>
-#include <fstream>
-#include <libidl/idl.hpp>
+#include <libidl/config.hpp>
+#include <libidl/libidl.hpp>
 
 /// @brief You have to provide IDL fields, thus the min count.
 static auto kMinArgs{4};
 
 int main(int argc, char** argv) {
   if (argc < kMinArgs) {
-    std::cout << "cl.idl.exe: invalid argument count, a minimum of 3 is required.\n";
+    std::cout << "cl.idl.exe: invalid argument count, a minimum of 3 arguments is required.\n";
     return EXIT_FAILURE;
   }
 
   std::ofstream out_fp(std::string{argv[1]} + LIBIDL_FILE_EXT);
 
   for (int i = {2}; i < argc; i += 2) {
+    if ((i + 1) > argc) break;
+
     const char* key   = argv[i];
     const char* value = argv[i + 1];
 
@@ -30,7 +31,7 @@ int main(int argc, char** argv) {
     if (::strlen(value) > LIBIDL_MAX_LAYOUT_LEN) break;
     if (::strlen(key) > LIBIDL_MAX_LAYOUT_LEN) break;
 
-    LIBIDL_DECL(key, value, out_fp);
+    LIBIDL_DECL_STRUCT(key, value, out_fp);
   }
 
   return EXIT_SUCCESS;

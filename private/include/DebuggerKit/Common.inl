@@ -8,7 +8,7 @@
 #define kRed "\e[0;31m"
 #define kWhite "\e[0;97m"
 
-#define kStdOut (std::cout << kRed << "dbg: " << kWhite)
+#define kStdOut (std::cout << kRed << "kdbg: " << kWhite)
 
 inline bool kKeepRunning = false;
 
