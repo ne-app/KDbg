@@ -7,7 +7,7 @@
 #include <libidl/libidl.hpp>
 
 /// @brief You have to provide IDL fields, thus the min count.
-static auto kMinArgs{4};
+static const auto kMinArgs{4};
 
 int main(int argc, char** argv) {
   if (argc < kMinArgs) {
