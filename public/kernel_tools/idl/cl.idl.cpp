@@ -8,6 +8,7 @@
 
 /// @brief You have to provide IDL fields, thus the min count.
 static const auto kMinArgs{4};
+static const auto kStartArgs{2};
 
 int main(int argc, char** argv) {
   if (argc < kMinArgs) {
@@ -17,7 +18,7 @@ int main(int argc, char** argv) {
 
   std::ofstream out_fp(std::string{argv[1]} + LIBIDL_FILE_EXT);
 
-  for (int i = {2}; i < argc; i += 2) {
+  for (int i = {kStartArgs}; i < argc; i += 2) {
     if ((i + 1) > argc) break;
 
     const char* key   = argv[i];
