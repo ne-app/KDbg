@@ -13,9 +13,9 @@
 #ifdef DK_KRNL_DEBUGGER
 
 #include <Tier0Kit/Detail/Config.h>
-#include <DebuggerKit/IDebugger.h>
+#include <KDbg/IDebugger.h>
 
-namespace DebuggerKit::ANT {
+namespace KDbg::ANT {
 
 class IKrnlDebugger;
 
@@ -45,7 +45,7 @@ class IKrnlDebugger DK_DEBUGGER_CONTRACT {
   Detail::dk_socket_type m_socket{0};
 };
 
-}  // namespace DebuggerKit::ANT
+}  // namespace KDbg::ANT
 
 #endif  // ifdef DK_KRNL_DEBUGGER
 

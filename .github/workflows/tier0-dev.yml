@@ -13,9 +13,10 @@ jobs:
 
     steps:
     - uses: actions/checkout@v4
+    - name: Install MinGW
+      run: sudo apt-get install -y mingw-w64
     - name: Attempt NeBuild
       run: sudo curl https://github.com/ne-app-open/bld/releases/download/v0.0.6-apple-m1/nebuild-debian -o sanity-test
-    - name: Build Tier0Kit and DebuggerKit
+    - name: Build Tier0Kit and KDbg
       run: sudo curl https://github.com/ne-app-open/bld/releases/download/v0.0.6-apple-m1/nebuild-debian -o /bin/nebuild && sudo chmod +x /bin/nebuild && sudo apt update && sudo apt install build-essential && sudo apt install libboost-dev &&
-          cd private/src/DebuggerKit && nebuild dk-posix.json
-
+          cd private/src/KDbg && nebuild dk-posix.json

@@ -15,11 +15,11 @@
 /// @author Amlal El Mahrouss
 /// @brief Kernel Debugger Protocol for Ne.app Ant
 
-#include <DebuggerKit/ANT.h>
+#include <KDbg/ANT.h>
 #include <ThirdParty/Dialogs/Dialogs.h>
 
-using namespace DebuggerKit::Detail;
-using namespace DebuggerKit::ANT;
+using namespace KDbg::Detail;
+using namespace KDbg::ANT;
 
 IKrnlDebugger::IKrnlDebugger()  = default;
 IKrnlDebugger::~IKrnlDebugger() = default;
@@ -96,7 +96,7 @@ bool IKrnlDebugger::Detach() noexcept {
   auto ret = ::send(m_socket, pkt.data(), pkt.size(), 0) > 0;
 
   if (ret)
-    ::close(m_socket);
+    ::closesocket(m_socket);
   else
     return NO;
 

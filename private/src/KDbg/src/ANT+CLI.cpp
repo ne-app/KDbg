@@ -6,11 +6,11 @@
 
 #ifdef DK_KRNL_DEBUGGER
 
-#include <DebuggerKit/ANT.h>
-#include <DebuggerKit/Common.inl>
+#include <KDbg/ANT.h>
+#include <KDbg/Common.inl>
 #include <ThirdParty/Dialogs/Dialogs.h>
 
-using namespace DebuggerKit::ANT;
+using namespace KDbg::ANT;
 
 static void dbgi_ctrlc_handler(std::int32_t) {
   if (!kPID || kPath.empty())
