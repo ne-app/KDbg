@@ -53,7 +53,7 @@
 
 #endif  // !kDistRelease
 
-namespace DebuggerKit {
+namespace KDbg {
 /// =========================================================== ///
 /// \brief Process ID
 /// =========================================================== ///
@@ -75,6 +75,6 @@ namespace Detail {
   
   using dk_socket_type             = int64_t;
 }  // namespace Detail
-}  // namespace DebuggerKit
+}  // namespace KDbg
 
 #endif  // TIER0KIT_DEBUGGERKIT_DETAIL_CONFIG_H

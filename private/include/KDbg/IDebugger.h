@@ -7,11 +7,11 @@
 #ifndef TIER0KIT_DEBUGGERKIT_DEBUGGERCONTRACT_H
 #define TIER0KIT_DEBUGGERKIT_DEBUGGERCONTRACT_H
 
-#include <DebuggerKit/Detail/Config.h>
+#include <KDbg/Detail/Config.h>
 
-#define DK_DEBUGGER_CONTRACT : public ::DebuggerKit::IDebugger
+#define DK_DEBUGGER_CONTRACT : public ::KDbg::IDebugger
 
-namespace DebuggerKit {
+namespace KDbg {
 class IDebugger;
 
 /// =========================================================== ///
@@ -43,6 +43,6 @@ class IDebugger {
   ProcessID     mPid{(ProcessID) ~0};
   BreakpointMap mBreakpoints;
 };
-}  // namespace DebuggerKit
+}  // namespace KDbg
 
 #endif  // TIER0KIT_DEBUGGERKIT_DEBUGGERCONTRACT_H

@@ -11,6 +11,7 @@
 	<Image url="kdbg://basehost.exe"/>
 	<Image url="kdbg://hal.x64.dll"/>
 	<Image url="kdbg://System.dll"/>
+	<Image url="kdbg://DDK.DDS.dll"/>
 	<Image url="kdbg://DDK.dll"/>
 	<Image url="kdbg://bootzldr.exe"/>
 </NavigationHints>

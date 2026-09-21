@@ -5,7 +5,7 @@
 
 #pragma once
 
-#include <cstdint>
+#include <libidl/config.hpp>
 
 #ifndef _LIBIDL
 #define _LIBIDL (202609)

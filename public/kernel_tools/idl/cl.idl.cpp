@@ -3,7 +3,6 @@
 // Licensed under the Apache License, Version 2.0 (see LICENSE file)
 // Official repository: https://github.com/ne-app/kdbg
 
-#include <libidl/config.hpp>
 #include <libidl/libidl.hpp>
 
 /// @brief You have to provide IDL fields, thus the min count.

@@ -4,6 +4,11 @@
 // file LICENSE or copy at http://www.apache.org/licenses/LICENSE-2.0)
 // Official repository: https://github.com/ne-app/kdbg
 
+#pragma once
+
+#include <KDbg/Detail/Config.h>
+#include <KDbg/ANT.h>
+
 #define kBlank "\e[0;30m"
 #define kRed "\e[0;31m"
 #define kWhite "\e[0;97m"
@@ -12,10 +17,10 @@
 
 inline bool kKeepRunning = false;
 
-#ifdef DK_KRNL_DEBUGGER
-inline DebuggerKit::ANT::IKrnlDebugger kKernelDebugger;
-#endif
+inline KDbg::ANT::IKrnlDebugger kKernelDebugger;
 
-inline DebuggerKit::ProcessID kPID           = 0L;
-inline DebuggerKit::CAddress  kActiveAddress = nullptr;
+inline KDbg::ProcessID kPID           = 0L;
+
+inline KDbg::CAddress  kActiveAddress = nullptr;
+
 inline Tier0Kit::STLString     kPath          = "";
