@@ -89,6 +89,10 @@ bool IKrnlDebugger::Continue() noexcept {
   return ret;
 }
 
+#ifndef DEBUGGERKIT_WINDOWS
+#define closesocket close
+#endif
+
 bool IKrnlDebugger::Detach() noexcept {
   Tier0Kit::STLString pkt = Detail::kDebugMagic;
   pkt += ";DTCH=1;\r";
