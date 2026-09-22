@@ -68,7 +68,7 @@ typedef char* CAddress;
 namespace Detail {
   constexpr auto     kDebugCmdLen  = 256U;
   constexpr auto     kDebugPort    = 51820;
-  constexpr auto     kDebugMagic   = "AN1.0.1;";
+  constexpr auto     kDebugMagic   = "NE1.0.1;";
   constexpr uint16_t kDebugVersion = 0x0101;
   constexpr auto     kDebugDelim   = ';';
   constexpr auto     kDebugEnd     = '\r';
