@@ -6,21 +6,17 @@
 
 #pragma once
 
-#include <KDbg/Detail/Config.h>
 #include <KDbg/ANT.h>
+#include <KDbg/Detail/Config.h>
 
-#define kBlank "\e[0;30m"
-#define kRed "\e[0;31m"
-#define kWhite "\e[0;97m"
-
-#define kStdOut (std::cout << kRed << "kdbg: " << kWhite)
+#define kStdOut (std::cout << "kdbg: ")
 
 inline bool kKeepRunning = false;
 
 inline KDbg::ANT::IKrnlDebugger kKernelDebugger;
 
-inline KDbg::ProcessID kPID           = 0L;
+inline KDbg::ProcessID kPID = 0L;
 
-inline KDbg::CAddress  kActiveAddress = nullptr;
+inline KDbg::CAddress kActiveAddress = nullptr;
 
-inline Tier0Kit::STLString     kPath          = "";
+inline Tier0Kit::STLString kPath = "";
