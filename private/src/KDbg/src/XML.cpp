@@ -64,7 +64,7 @@ inline bool INavHintsDelegate::Load(const std::string& path) noexcept {
   return true;
 }
 
-inline std::string INavHintsDelegate::Pragma(const std::string& key) const noexcept {
+std::string INavHintsDelegate::Pragma(const std::string& key) const noexcept {
   for (const auto& p : m_pragmas) {
     if (p.key == key) return p.value;
   }
