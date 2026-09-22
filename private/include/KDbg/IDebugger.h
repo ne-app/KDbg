@@ -12,7 +12,6 @@
 #define DK_DEBUGGER_CONTRACT : public ::KDbg::IDebugger
 
 namespace KDbg {
-class IDebugger;
 
 /// =========================================================== ///
 /// \brief Debugger contract class in C++, as per the design states.
@@ -43,6 +42,7 @@ class IDebugger {
   ProcessID     mPid{(ProcessID) ~0};
   BreakpointMap mBreakpoints;
 };
+
 }  // namespace KDbg
 
 #endif  // TIER0KIT_DEBUGGERKIT_DEBUGGERCONTRACT_H

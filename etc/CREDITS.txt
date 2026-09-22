@@ -1,0 +1,5 @@
+CREDITS
+=======
+
+libxml2 - XML parsing.
+PFD - for dialogs.

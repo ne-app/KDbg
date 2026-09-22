@@ -7,15 +7,14 @@
 #ifdef DK_KRNL_DEBUGGER
 
 #include <KDbg/ANT.h>
-#include <KDbg/Common.inl>
 #include <ThirdParty/Dialogs/Dialogs.h>
 #include <ThirdParty/XML/XML.h>
+#include <KDbg/Common.inl>
 
 using namespace KDbg::ANT;
 
 static void dbgi_ctrlc_handler(std::int32_t) {
-  if (!kPID || kPath.empty())
-    return;
+  if (!kPID || kPath.empty()) return;
 
   kKernelDebugger.Break();
 
@@ -29,17 +28,28 @@ TIER0KIT_MODULE(DebuggerAnt) {
               "ANT Kernel Debugger\n(C) 2025-2026 Ne.app, all "
               "rights reserved.");
 
-  if (argc >= 5 && std::string(argv[1]) == "-k" && argv[2] != nullptr &&
-      std::string(argv[3]) == "-ip" && argv[4] != nullptr) {
-    kPath = argv[2];
+  KDbg::INavHintsDelegate del;
+
+  if (del.Load(argv[1])) {
+    kPath = del.Pragma("SystemURI");
     kPath += ":";
-    kPath += argv[4];
+    kPath += del.Pragma("SystemPort");
+    kPath += "?macro=" + del.Pragma("PreprocessorMacro");
+    kPath += "&img_type=" + del.Pragma("ImageType");
+    kPath += "&img_arr=";
+
+    auto img = del.Images();
+
+    for (const auto& imgs : img) {
+      kPath += imgs.url;
+      kPath += "%20";
+    }
 
     kStdOut << "[+] KIP (Kernel:IP) set to: " << kPath << "\n";
 
     Tier0Kit::install_signal(SIGINT, dbgi_ctrlc_handler);
 
-    kKernelDebugger.Attach(kPath, argv[4], kPID);
+    kKernelDebugger.Attach(kPath, del.Pragma("SystemCopyPath"), kPID);
 
     while (YES) {
       if (kKeepRunning) {

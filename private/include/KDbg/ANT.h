@@ -17,8 +17,6 @@
 
 namespace KDbg::ANT {
 
-class IKrnlDebugger;
-
 /// =========================================================== ///
 /// \brief ANT Debugger Contract for its debugging.
 /// \author Amlal El Mahrouss
