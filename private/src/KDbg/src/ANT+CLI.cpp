@@ -9,6 +9,7 @@
 #include <KDbg/ANT.h>
 #include <KDbg/Common.inl>
 #include <ThirdParty/Dialogs/Dialogs.h>
+#include <ThirdParty/XML/XML.h>
 
 using namespace KDbg::ANT;
 

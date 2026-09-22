@@ -754,10 +754,12 @@ inline bool internal::executor::ready(int timeout /* = default_wait_timeout */) 
   // FIXME: do something
   (void) timeout;
 #else
-  char    buf[BUFSIZ];
+  char    buf[BUFSIZ] = {0};
   ssize_t received = read(m_fd, buf, BUFSIZ);  // Flawfinder: ignore
   if (received > 0) {
     m_stdout += std::string(buf, received);
+    return false;
+  } else if (received < 1) {
     return false;
   }
 
