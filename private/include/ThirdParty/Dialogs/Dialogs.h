@@ -759,8 +759,6 @@ inline bool internal::executor::ready(int timeout /* = default_wait_timeout */) 
   if (received > 0) {
     m_stdout += std::string(buf, received);
     return false;
-  } else if (received < 1) {
-    return false;
   }
 
   // Reap child process if it is dead. It is possible that the system has already reaped it
