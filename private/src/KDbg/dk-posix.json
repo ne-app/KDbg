@@ -6,8 +6,8 @@
     "../../include"
   ],
   "sources_path": [ "src/*.cpp" ],
-  "output_name": "Ant.KDbg.dll",
-  "compiler_flags": [ "-shared", "$(pkg-config --cflags --libs libxml-2.0)", "-lxml2" ],
+  "output_name": "libAnt.KDbg.so",
+  "compiler_flags": [ "-shared", "-fPIC", "$(pkg-config --cflags --libs libxml-2.0)", "-lxml2" ],
   "cpp_macros": [
     "__TIER0KIT__=202505",
     "TIER0KIT_USE_STRUCTS=1",
