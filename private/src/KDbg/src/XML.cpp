@@ -5,10 +5,16 @@
 // Official repository: https://github.com/ne-app/kdbg
 
 #include <ThirdParty/XML/XML.h>
+#include <filesystem>
+
+/// @note should we throw if path is not regular inode?
 
 namespace KDbg {
 
 inline bool INavHintsDelegate::Load(const std::string& path) noexcept {
+  if (!std::filesystem::exists(path)) return false;
+  if (!std::filesystem::is_regular_file(path)) return false;
+
   m_pragmas.clear();
   m_images.clear();
   m_valid = false;
