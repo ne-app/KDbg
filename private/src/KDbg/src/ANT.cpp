@@ -18,8 +18,8 @@
 #include <KDbg/ANT.h>
 #include <ThirdParty/Dialogs/Dialogs.h>
 
-using namespace KDbg::Detail;
-using namespace KDbg::ANT;
+using namespace ::KDbg::Detail;
+using namespace ::KDbg::ANT;
 
 IKrnlDebugger::IKrnlDebugger()  = default;
 IKrnlDebugger::~IKrnlDebugger() = default;
@@ -49,6 +49,7 @@ bool IKrnlDebugger::Attach(const Tier0Kit::STLString& path,
   if (pkt.empty()) return NO;
 
   pkt += ";\r";
+  pkt += path + ";\r";
   //! common enough baud rate for a debugger.
   pkt += "BAUD=38400;\r";
 
