@@ -3,6 +3,8 @@
 	<Pragma Key="ImageType">
 		DEBUG
 	</Pragma>
+	<Pragma Key="SystemURI">antoskrnl.exe</Pragma>
+	<Pragma Key="SystemPort">3000</Pragma>
 	<Pragma Key="PreprocessorMacro">
 		_DEBUG
 	</Pragma>
