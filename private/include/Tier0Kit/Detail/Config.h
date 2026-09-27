@@ -15,7 +15,7 @@
 #include <Tier0Kit/Detail/PreConfig.h>
 
 #ifdef __TIER0_USE_OCL__
-#include <ocl/tproc.hpp>
+#include <ocl.hpp>
 #endif
 
 namespace Tier0Kit {
@@ -43,7 +43,7 @@ inline STLString current_date() noexcept {
   return fmt;
 }
 
-inline bool to_str(char* str, Int32 limit, Int32 base) noexcept {
+inline bool t0_to_str(char* str, Int32 limit, Int32 base) noexcept {
   if (limit == 0) return false;
 
   Int32 copy_limit = limit;
@@ -63,8 +63,9 @@ inline bool to_str(char* str, Int32 limit, Int32 base) noexcept {
   return true;
 }
 
-inline bool install_signal(Int32 signal, void (*handler)(int)) noexcept {
+inline bool t0_install_signal(Int32 signal, void (*handler)(int)) noexcept {
   if (handler == nullptr) return false;
+  if (signal == 0) return false;
 
   if (::signal(signal, handler) == SIG_ERR) {
     return false;

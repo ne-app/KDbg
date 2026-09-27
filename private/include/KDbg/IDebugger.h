@@ -7,13 +7,11 @@
 #ifndef TIER0KIT_DEBUGGERKIT_DEBUGGERCONTRACT_H
 #define TIER0KIT_DEBUGGERKIT_DEBUGGERCONTRACT_H
 
-#include <DebuggerKit/Detail/Config.h>
-#include <unordered_map>
+#include <KDbg/Detail/Config.h>
 
-#define DK_DEBUGGER_CONTRACT : public ::DebuggerKit::IDebugger
+#define DK_DEBUGGER_CONTRACT : public ::KDbg::IDebugger
 
-namespace DebuggerKit {
-class IDebugger;
+namespace KDbg {
 
 /// =========================================================== ///
 /// \brief Debugger contract class in C++, as per the design states.
@@ -25,25 +23,27 @@ class IDebugger {
   virtual ~IDebugger() = default;
 
  public:
-  IDebugger& operator=(const IDebugger&) = default;
-  IDebugger(const IDebugger&)            = default;
+  TIER0KIT_COPY_DEFAULT(IDebugger)
+  TIER0KIT_MOVE_DEFAULT(IDebugger)
 
  public:
   virtual bool Attach(const Tier0Kit::STLString& path, const Tier0Kit::STLString& argv,
-                      ProcessID& pid) noexcept                        = 0;
+                      ProcessID& pid) noexcept                     = 0;
   virtual bool BreakAt(const Tier0Kit::STLString& symbol) noexcept = 0;
-  virtual bool Break() noexcept                                       = 0;
-  virtual bool Continue() noexcept                                    = 0;
-  virtual bool Detach() noexcept                                      = 0;
+  virtual bool Break() noexcept                                    = 0;
+  virtual bool Continue() noexcept                                 = 0;
+  virtual bool Detach() noexcept                                   = 0;
 
-  using BreakpointMap = std::unordered_map<uintptr_t, uintptr_t>;
+  using BreakT = std::unordered_map<uintptr_t, uintptr_t>;
 
-  virtual BreakpointMap& Leak() { return mBreakpoints; }
+ public:
+  virtual BreakT& Leak() { return m_points; }
 
  protected:
-  ProcessID     mPid{(ProcessID) ~0};
-  BreakpointMap mBreakpoints;
+  ProcessID m_pid{(ProcessID) ~0};
+  BreakT    m_points;
 };
-}  // namespace DebuggerKit
+
+}  // namespace KDbg
 
 #endif  // TIER0KIT_DEBUGGERKIT_DEBUGGERCONTRACT_H

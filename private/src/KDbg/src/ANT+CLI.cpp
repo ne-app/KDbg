@@ -6,39 +6,63 @@
 
 #ifdef DK_KRNL_DEBUGGER
 
-#include <DebuggerKit/ANT.h>
-#include <DebuggerKit/Common.inl>
+#include <KDbg/ANT.h>
 #include <ThirdParty/Dialogs/Dialogs.h>
+#include <ThirdParty/XML/XML.h>
 
-using namespace DebuggerKit::ANT;
+#ifndef kStdOut
+#define kStdOut (std::cout << "kdbg: ")
+#endif
+
+using namespace ::KDbg::ANT;
+
+static bool kKeepRunning = false;
+
+static IKrnlDebugger kKernelDebugger;
+
+static KDbg::ProcessID kPID = 0L;
+
+static KDbg::CAddress kActiveAddress = nullptr;
+
+static Tier0Kit::STLString kProgPath = "";
 
 static void dbgi_ctrlc_handler(std::int32_t) {
-  if (!kPID || kPath.empty())
-    return;
+  if (!kPID || kProgPath.empty()) return;
 
   kKernelDebugger.Break();
 
-  pfd::notify("ANT Kernel Debugger Event", "Breakpoint has been hit!");
+  pfd::notify("ANT Event", "Breakpoint hit!\nWaiting for input...");
 
   kKeepRunning = false;
 }
 
 TIER0KIT_MODULE(DebuggerAnt) {
-  pfd::notify("ANT Kernel Debugger Event",
+  pfd::notify("ANT Event",
               "ANT Kernel Debugger\n(C) 2025-2026 Ne.app, all "
               "rights reserved.");
 
-  if (argc >= 5 && std::string(argv[1]) == "-k" && argv[2] != nullptr &&
-      std::string(argv[3]) == "-ip" && argv[4] != nullptr) {
-    kPath = argv[2];
-    kPath += ":";
-    kPath += argv[4];
+  KDbg::INavHintsDelegate del;
 
-    kStdOut << "[+] KIP (Kernel:IP) set to: " << kPath << "\n";
+  if (strcmp(argv[1], "--Xmanifest") == 0 && del.Load(argv[2])) {
+    kProgPath = del.Pragma("SystemURI");
+    kProgPath += ":";
+    kProgPath += del.Pragma("SystemPort");
+    kProgPath += "?macro=" + del.Pragma("PreprocessorMacro");
+    kProgPath += "&img_type=" + del.Pragma("ImageType");
+    kProgPath += "&img_arr=";
 
-    Tier0Kit::install_signal(SIGINT, dbgi_ctrlc_handler);
+    auto img = del.Images();
 
-    kKernelDebugger.Attach(kPath, argv[4], kPID);
+    for (const auto& imgs : img) {
+      kProgPath += imgs.url;
+      kProgPath += "%20";
+    }
+
+    kStdOut << "[+] KIP (Kernel:IP) set to: " << kProgPath << "\n";
+
+    Tier0Kit::t0_install_signal(SIGINT, dbgi_ctrlc_handler);
+
+    kKernelDebugger.Attach(kProgPath, del.Pragma("SystemCopyPath"), kPID);
 
     while (YES) {
       if (kKeepRunning) {
@@ -64,7 +88,7 @@ TIER0KIT_MODULE(DebuggerAnt) {
         kStdOut << "[?] Enter a argument to use: ";
         std::getline(std::cin, cmd);
 
-        kKernelDebugger.Attach(kPath, cmd, kPID);
+        kKernelDebugger.Attach(kProgPath, cmd, kPID);
       }
 
       if (cmd == "exit") {

@@ -1,0 +1,6 @@
+[submodule "EXTERNAL_HEADERS/Avkon"]
+	path = EXTERNAL_HEADERS/Avkon
+	url = git@github.com:ne-app/Avkon.git
+[submodule "EXTERNAL_HEADERS/Boost.URL"]
+	path = EXTERNAL_HEADERS/Boost.URL
+	url = https://github.com/boostorg/url.git

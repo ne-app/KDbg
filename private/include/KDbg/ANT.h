@@ -13,11 +13,9 @@
 #ifdef DK_KRNL_DEBUGGER
 
 #include <Tier0Kit/Detail/Config.h>
-#include <DebuggerKit/IDebugger.h>
+#include <KDbg/IDebugger.h>
 
-namespace DebuggerKit::ANT {
-
-class IKrnlDebugger;
+namespace KDbg::ANT {
 
 /// =========================================================== ///
 /// \brief ANT Debugger Contract for its debugging.
@@ -29,8 +27,8 @@ class IKrnlDebugger DK_DEBUGGER_CONTRACT {
   virtual ~IKrnlDebugger() override;
 
  public:
-  IKrnlDebugger& operator=(const IKrnlDebugger&) = default;
-  IKrnlDebugger(const IKrnlDebugger&)            = default;
+  TIER0KIT_COPY_DEFAULT(IKrnlDebugger)
+  TIER0KIT_MOVE_DEFAULT(IKrnlDebugger)
 
  public:
   bool Attach(const Tier0Kit::STLString& path, const Tier0Kit::STLString& arg_v,
@@ -45,7 +43,7 @@ class IKrnlDebugger DK_DEBUGGER_CONTRACT {
   Detail::dk_socket_type m_socket{0};
 };
 
-}  // namespace DebuggerKit::ANT
+}  // namespace KDbg::ANT
 
 #endif  // ifdef DK_KRNL_DEBUGGER
 

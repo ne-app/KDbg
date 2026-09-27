@@ -25,6 +25,14 @@
 #include <unistd.h>
 #endif
 
+#ifdef DEBUGGERKIT_WINDOWS
+#include <winsock2.h>
+#include <ws2tcpip.h>
+#include <windows.h>
+#endif
+
+#include <unordered_map>
+
 #ifdef __APPLE__
 #include <dlfcn.h>
 
@@ -45,7 +53,7 @@
 
 #endif  // !kDistRelease
 
-namespace DebuggerKit {
+namespace KDbg {
 /// =========================================================== ///
 /// \brief Process ID
 /// =========================================================== ///
@@ -60,13 +68,13 @@ typedef char* CAddress;
 namespace Detail {
   constexpr auto     kDebugCmdLen  = 256U;
   constexpr auto     kDebugPort    = 51820;
-  constexpr auto     kDebugMagic   = "AN1.0.1;";
+  constexpr auto     kDebugMagic   = "NE1.0.1;";
   constexpr uint16_t kDebugVersion = 0x0101;
   constexpr auto     kDebugDelim   = ';';
   constexpr auto     kDebugEnd     = '\r';
   
   using dk_socket_type             = int64_t;
 }  // namespace Detail
-}  // namespace DebuggerKit
+}  // namespace KDbg
 
 #endif  // TIER0KIT_DEBUGGERKIT_DETAIL_CONFIG_H

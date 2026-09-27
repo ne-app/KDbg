@@ -6,11 +6,14 @@
 	<Pragma Key="PreprocessorMacro">
 		_DEBUG
 	</Pragma>
+	<Pragma Key="SystemURI">vmoskrnl.exe</Pragma>
+	<Pragma Key="SystemPort">3000</Pragma>
 	<Image url="kdbg://vmoskrnl.exe"/>
 	<Image url="kdbg://rpchost.exe"/>
 	<Image url="kdbg://basehost.exe"/>
 	<Image url="kdbg://hal.x64.dll"/>
 	<Image url="kdbg://System.dll"/>
+	<Image url="kdbg://DDK.DDS.dll"/>
 	<Image url="kdbg://DDK.dll"/>
 	<Image url="kdbg://bootzldr.exe"/>
 </NavigationHints>

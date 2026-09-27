@@ -15,11 +15,11 @@
 /// @author Amlal El Mahrouss
 /// @brief Kernel Debugger Protocol for Ne.app Ant
 
-#include <DebuggerKit/ANT.h>
+#include <KDbg/ANT.h>
 #include <ThirdParty/Dialogs/Dialogs.h>
 
-using namespace DebuggerKit::Detail;
-using namespace DebuggerKit::ANT;
+using namespace ::KDbg::Detail;
+using namespace ::KDbg::ANT;
 
 IKrnlDebugger::IKrnlDebugger()  = default;
 IKrnlDebugger::~IKrnlDebugger() = default;
@@ -49,6 +49,7 @@ bool IKrnlDebugger::Attach(const Tier0Kit::STLString& path,
   if (pkt.empty()) return NO;
 
   pkt += ";\r";
+  pkt += path + ";\r";
   //! common enough baud rate for a debugger.
   pkt += "BAUD=38400;\r";
 
@@ -89,6 +90,10 @@ bool IKrnlDebugger::Continue() noexcept {
   return ret;
 }
 
+#ifndef DEBUGGERKIT_WINDOWS
+#define closesocket close
+#endif
+
 bool IKrnlDebugger::Detach() noexcept {
   Tier0Kit::STLString pkt = Detail::kDebugMagic;
   pkt += ";DTCH=1;\r";
@@ -96,7 +101,7 @@ bool IKrnlDebugger::Detach() noexcept {
   auto ret = ::send(m_socket, pkt.data(), pkt.size(), 0) > 0;
 
   if (ret)
-    ::close(m_socket);
+    ::closesocket(m_socket);
   else
     return NO;
 
