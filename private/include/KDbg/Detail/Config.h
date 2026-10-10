@@ -10,7 +10,7 @@
 /// @author Amlal El Mahrouss
 /// =========================================================== ///
 
-#include <Tier0Kit/Detail/Config.h>
+#include <Tier0/Detail/Config.h>
 
 #ifndef DEBUGGERKIT_WINDOWS
 #include <arpa/inet.h>

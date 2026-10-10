@@ -24,8 +24,8 @@ using namespace ::KDbg::ANT;
 IKrnlDebugger::IKrnlDebugger()  = default;
 IKrnlDebugger::~IKrnlDebugger() = default;
 
-bool IKrnlDebugger::Attach(const Tier0Kit::STLString& path,
-                              const Tier0Kit::STLString& argv, ProcessID& pid) noexcept {
+bool IKrnlDebugger::Attach(const Tier0::STLString& path,
+                              const Tier0::STLString& argv, ProcessID& pid) noexcept {
   if (path.empty() || argv.empty()) return NO;
 
   m_socket = ::socket(AF_INET, SOCK_STREAM, 0);
@@ -44,7 +44,7 @@ bool IKrnlDebugger::Attach(const Tier0Kit::STLString& path,
 
   if (ret) return NO;
 
-  Tier0Kit::STLString pkt = Detail::kDebugMagic;
+  Tier0::STLString pkt = Detail::kDebugMagic;
 
   if (pkt.empty()) return NO;
 
@@ -57,8 +57,8 @@ bool IKrnlDebugger::Attach(const Tier0Kit::STLString& path,
   return ret;
 }
 
-bool IKrnlDebugger::BreakAt(const Tier0Kit::STLString& symbol) noexcept {
-  Tier0Kit::STLString pkt = Detail::kDebugMagic;
+bool IKrnlDebugger::BreakAt(const Tier0::STLString& symbol) noexcept {
+  Tier0::STLString pkt = Detail::kDebugMagic;
 
   if (pkt.empty()) return NO;
 
@@ -73,7 +73,7 @@ bool IKrnlDebugger::BreakAt(const Tier0Kit::STLString& symbol) noexcept {
 }
 
 bool IKrnlDebugger::Break() noexcept {
-  Tier0Kit::STLString pkt = Detail::kDebugMagic;
+  Tier0::STLString pkt = Detail::kDebugMagic;
   pkt += ";BRK=1;\r";
 
   auto ret = ::send(m_socket, pkt.data(), pkt.size(), 0) > 0;
@@ -81,7 +81,7 @@ bool IKrnlDebugger::Break() noexcept {
 }
 
 bool IKrnlDebugger::Continue() noexcept {
-  Tier0Kit::STLString pkt = Detail::kDebugMagic;
+  Tier0::STLString pkt = Detail::kDebugMagic;
   if (pkt.empty()) return NO;
 
   pkt += ";CONT=1;\r";
@@ -95,7 +95,7 @@ bool IKrnlDebugger::Continue() noexcept {
 #endif
 
 bool IKrnlDebugger::Detach() noexcept {
-  Tier0Kit::STLString pkt = Detail::kDebugMagic;
+  Tier0::STLString pkt = Detail::kDebugMagic;
   pkt += ";DTCH=1;\r";
 
   auto ret = ::send(m_socket, pkt.data(), pkt.size(), 0) > 0;

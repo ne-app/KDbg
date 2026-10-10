@@ -3,22 +3,22 @@
 // file LICENSE or copy at http://www.apache.org/licenses/LICENSE-2.0)
 // Official repository: https://github.com/ne-app/kdbg
 
-#ifndef __TIER0KIT_CONFIG_H__
-#define __TIER0KIT_CONFIG_H__
+#ifndef __TIER0_CONFIG_H__
+#define __TIER0_CONFIG_H__
 
 /// =========================================================== ///
 /// @file detail/Config.h
 /// @author Amlal El Mahrouss
-/// @brief Basic defines and types for Tier0Kit.
+/// @brief Basic defines and types for Tier0.
 /// =========================================================== ///
 
-#include <Tier0Kit/Detail/PreConfig.h>
+#include <Tier0/Detail/PreConfig.h>
 
 #ifdef __TIER0_USE_OCL__
 #include <ocl.hpp>
 #endif
 
-namespace Tier0Kit {
+namespace Tier0 {
 
 inline static constexpr int kBaseYear = 1900;
 using STLString                       = std::string;
@@ -74,6 +74,6 @@ inline bool t0_install_signal(Int32 signal, void (*handler)(int)) noexcept {
   return true;
 }
 
-}  // namespace Tier0Kit
+}  // namespace Tier0
 
-#endif  // __TIER0KIT_CONFIG_H__
+#endif  // __TIER0_CONFIG_H__

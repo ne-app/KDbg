@@ -12,7 +12,7 @@
 
 #ifdef DK_KRNL_DEBUGGER
 
-#include <Tier0Kit/Detail/Config.h>
+#include <Tier0/Detail/Config.h>
 #include <KDbg/IDebugger.h>
 
 namespace KDbg::ANT {
@@ -31,15 +31,15 @@ class IKrnlDebugger DK_DEBUGGER_CONTRACT {
   TIER0KIT_MOVE_DEFAULT(IKrnlDebugger)
 
  public:
-  bool Attach(const Tier0Kit::STLString& path, const Tier0Kit::STLString& arg_v,
+  bool Attach(const Tier0::STLString& path, const Tier0::STLString& arg_v,
               ProcessID& pid) noexcept override;
-  bool BreakAt(const Tier0Kit::STLString& symbol) noexcept override;
+  bool BreakAt(const Tier0::STLString& symbol) noexcept override;
   bool Break() noexcept override;
   bool Continue() noexcept override;
   bool Detach() noexcept override;
 
  private:
-  Tier0Kit::STLString m_kernel_path{};
+  Tier0::STLString m_kernel_path{};
   Detail::dk_socket_type m_socket{0};
 };
 

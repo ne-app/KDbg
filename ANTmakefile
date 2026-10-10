@@ -1,0 +1,12 @@
+# Kernel debugger release name and product name.
+
+RELEASE_NAME=Las Vegas
+RELEASE_PRODUCT=ANT KDbg
+RELEASE_VERSION=v1.0.0
+
+.PHONY: all
+all:
+	@echo "[ReleaseInfo]"
+	@echo "Release=\"${RELEASE_NAME}-${RELEASE_VERSION}-${RELEASE_PRODUCT}\""
+	@echo "Vendor=\"Ne.app\""
+	@echo "Profile=\"Server\""
