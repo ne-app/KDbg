@@ -3,7 +3,7 @@
 // file LICENSE or copy at http://www.apache.org/licenses/LICENSE-2.0)
 // Official repository: https://github.com/ne-app/kdbg
 
-#include <Tier0Kit/Detail/Config.h>
+#include <Tier0/Detail/Config.h>
 
 /// @file kdbg.cc
 /// @brief ANT debugger.

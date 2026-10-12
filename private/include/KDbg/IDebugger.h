@@ -27,9 +27,9 @@ class IDebugger {
   TIER0KIT_MOVE_DEFAULT(IDebugger)
 
  public:
-  virtual bool Attach(const Tier0Kit::STLString& path, const Tier0Kit::STLString& argv,
+  virtual bool Attach(const Tier0::STLString& path, const Tier0::STLString& argv,
                       ProcessID& pid) noexcept                     = 0;
-  virtual bool BreakAt(const Tier0Kit::STLString& symbol) noexcept = 0;
+  virtual bool BreakAt(const Tier0::STLString& symbol) noexcept = 0;
   virtual bool Break() noexcept                                    = 0;
   virtual bool Continue() noexcept                                 = 0;
   virtual bool Detach() noexcept                                   = 0;

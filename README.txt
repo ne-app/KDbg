@@ -1,18 +1,22 @@
-Kernel Debugger
-===============
+--------------------------------------------------------------------------------------------------------------
+Ant Kernel Debugger
+--------------------------------------------------------------------------------------------------------------
 
-The Kernel debugger for the Ant PDK and its distributions.
+The Ant kernel debugger for the Ant PDK and its distributions.
 
+--------------------------------------------------------------------------------------------------------------
 Installing
-==========
+--------------------------------------------------------------------------------------------------------------
 
-Git, GCC, OCL, Avkon, Boost, and their depedencies are required before proceeding to install.
+The Software Git, GCC, OCL, Avkon, Boost, and their depedencies are required before proceeding to install.
 
-Steps:
-=======
+--------------------------------------------------------------------------------------------------------------
+Installing Steps
+--------------------------------------------------------------------------------------------------------------
 
 - Build the KDbg DLL.
-- Then once you're done, build the cli DLL.
+- Build the CLI from the KDbg DLL.
 
-
-Copyright 2026, Ne.app, all rights reserved.
+--------------------------------------------------------------------------------------------------------------
+                                Copyright 2026, Ne.app, all rights reserved.
+--------------------------------------------------------------------------------------------------------------

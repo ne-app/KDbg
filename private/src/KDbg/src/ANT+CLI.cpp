@@ -24,7 +24,7 @@ static KDbg::ProcessID kPID = 0L;
 
 static KDbg::CAddress kActiveAddress = nullptr;
 
-static Tier0Kit::STLString kProgPath = "";
+static Tier0::STLString kProgPath = "";
 
 static void dbgi_ctrlc_handler(std::int32_t) {
   if (!kPID || kProgPath.empty()) return;
@@ -60,7 +60,7 @@ TIER0KIT_MODULE(DebuggerAnt) {
 
     kStdOut << "[+] KIP (Kernel:IP) set to: " << kProgPath << "\n";
 
-    Tier0Kit::t0_install_signal(SIGINT, dbgi_ctrlc_handler);
+    Tier0::t0_install_signal(SIGINT, dbgi_ctrlc_handler);
 
     kKernelDebugger.Attach(kProgPath, del.Pragma("SystemCopyPath"), kPID);
 
