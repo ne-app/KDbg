@@ -12,5 +12,16 @@
         "kClIDLVersion=0x0100",
         "kClIDLVersionHighest=0x0100",
         "kClIDLVersionLowest=0x0100"
+    ],
+    "compiler_flags": [
+        "-fPIC",
+        "-fPIE",
+        "-shared",
+        "-static-libgcc",
+        "-static-libstdc++",
+        "-Wl,-Bstatic",
+        "-lstdc++",
+        "-lpthread",
+        "-Wl,-Bdynamic"
     ]
 }
